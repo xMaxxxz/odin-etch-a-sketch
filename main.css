@@ -20,6 +20,36 @@ html body {
     border-bottom: 1px solid black;
 }
 
+#tools {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    border-left: 5%;
+    flex-wrap: wrap;
+}
+
+.color {
+    padding: 4%;
+    margin: 2%;
+    border: 1px solid black;
+}
+
 .black {
     background-color: black;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.eraser {
+    background-color: white;
 }
