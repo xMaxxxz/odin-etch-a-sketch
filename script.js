@@ -13,7 +13,7 @@ let gridArray = [];
 
 function createGrid(size) {
     let grid = document.querySelector("#grid");
-    let elementWidth = (grid.clientWidth / Math.sqrt(size)) / 2 - 1.1; //Substracting 1.1 because of the borders + precision error
+    let elementWidth =  (grid.clientWidth / Math.sqrt(size) / 2)- 1.1; //Subtracting 1.1 because of the borders + precision error
     
     let firstElement = grid.firstElementChild;
     while (firstElement) {
