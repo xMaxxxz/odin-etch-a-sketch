@@ -1,9 +1,10 @@
-//UI
+//UI (Coloring)
 let colorOptions = document.querySelectorAll(".color");
 let color;
 colorOptions.forEach(function(e) {
     e.addEventListener("click", function(e) {
-        color = e.target.getAttribute("id");
+        let selectedColor = e.target.getAttribute("class");
+        color = selectedColor.split(" ").pop();
     });
 });
 
@@ -13,7 +14,9 @@ let gridArray = [];
 
 function createGrid(size) {
     let grid = document.querySelector("#grid");
-    let elementWidth =  (grid.clientWidth / Math.sqrt(size) / 2)- 1.1; //Subtracting 1.1 because of the borders + precision error
+    let gridWidth = Math.round(window.innerWidth / 100 * 30); //Returns an integer representing 30% of the doc width
+    grid.style.width = `${gridWidth}px`;
+    let elementWidth =  (gridWidth / size) / 2 - 0.5;
     
     let firstElement = grid.firstElementChild;
     while (firstElement) {
@@ -21,7 +24,7 @@ function createGrid(size) {
         firstElement = grid.firstElementChild;
     }
 
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < (size * size); i++) {
         gridArray[i] = document.createElement("div");
         gridArray[i].setAttribute("style", `padding: ${elementWidth}px;`);
         gridArray[i].classList.add("grid-element");
@@ -30,7 +33,7 @@ function createGrid(size) {
     colorGrid();
 }
 //Default grid size and color
-createGrid(64);
+createGrid(8);
 colorGrid();
 
 //Create a new grid
