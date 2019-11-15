@@ -8,6 +8,11 @@ colorOptions.forEach(function(e) {
     });
 });
 
+//Random color
+function randomColorPicker() {
+    let randomHexValue = Math.floor(Math.random()*16777215).toString(16);
+    return "#" + randomHexValue;
+}
 //Creating grid
 
 let gridArray = [];
@@ -48,8 +53,14 @@ function colorGrid() {
     let gridElements = document.querySelectorAll(".grid-element");
     gridElements.forEach(function(e) {
         e.addEventListener("mouseenter", function(e) {
+            e.target.style.backgroundColor = "";
             e.target.removeAttribute("class");
-            e.target.classList.add("grid-element", color);
+            if (color === "random") {
+                let randomHexValue = randomColorPicker();
+                e.target.style.backgroundColor = `${randomHexValue}`;
+            } else {
+                e.target.classList.add("grid-element", color);
+            }
         });
     });
 }

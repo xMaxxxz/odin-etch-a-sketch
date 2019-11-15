@@ -68,6 +68,10 @@ p {
     background-color: yellow;
 }
 
+.random {
+    background-image: url("img/rainbow.png");
+    background-size: cover;
+}
 .eraser {
     background-color: white;
 }
